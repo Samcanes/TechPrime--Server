@@ -1,11 +1,19 @@
 {
-  "name": "techprime-server",
-  "version": "1.0.0",
-  "description": "Basic Server app for Tech Prime",
-  "main": "server.js",
-  "scripts": {
-    "test": "nodemon test"
-  },
-  "author": "Samcanes",
-  "license": "ISC"
+    "name": "api",
+    "version": "0.0.0",
+    "private": true,
+    "scripts": {
+        "start": "node ./app.js",
+        "test": "nodemon ./app.js"
+    },
+    "dependencies": {
+        "cors": "^2.8.5",
+        "dotenv": "^10.0.0",
+        "express": "^4.17.1",
+        "mongodb": "^4.1.0",
+        "mongoose": "^5.13.7",
+        "multer": "^1.4.3",
+        "path": "^0.12.7",
+        "slugify": "^1.6.0"
+    }
 }
