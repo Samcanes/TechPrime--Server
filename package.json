@@ -1,0 +1,11 @@
+{
+  "name": "techprime-server",
+  "version": "1.0.0",
+  "description": "Basic Server app for Tech Prime",
+  "main": "server.js",
+  "scripts": {
+    "test": "nodemon test"
+  },
+  "author": "Samcanes",
+  "license": "ISC"
+}
