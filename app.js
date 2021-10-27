@@ -8,6 +8,7 @@ const cors = require("cors");
 // routes here:
 
 const authroutes = require("./routes/auth");
+const projectRoutes = require("./routes/proejct");
 
 app.use(express.json({ extended: false, type: "application/json" }));
 
@@ -18,6 +19,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api", authroutes);
+app.use("/api", projectRoutes);
 
 const listener = app.listen(process.env.PORT || 3000, () => {
   console.log("Your app is listening on port " + listener.address().port);

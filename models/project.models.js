@@ -2,6 +2,10 @@ const mongoose = require("mongoose");
 
 const projectSchema = new mongoose.Schema(
   {
+    name: {
+      type: String,
+      required: true,
+    },
     reason: {
       type: String,
       enum: ["Business", "Dealership", "Transport"],
@@ -32,19 +36,19 @@ const projectSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
-    Priority: {
+    priority: {
       type: String,
       enum: ["High", "Low", "Medium"],
       required: true,
       trim: true,
     },
-    Department: {
+    department: {
       type: String,
       enum: ["Stratergy", "Finance", "Quality", "Maintenance", "Stores", "HR"],
       required: true,
       trim: true,
     },
-    Location: {
+    location: {
       type: String,
       enum: ["Pune", "Mumbai", "Delhi", "Calcutta", "Banglore"],
       required: true,
