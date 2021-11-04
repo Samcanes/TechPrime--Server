@@ -28,7 +28,7 @@ const listener = app.listen(process.env.PORT || 3000, () => {
 console.log(process.env.MONGO_URI);
 
 mongoose
-  .connect("mongodb://localhost:27017/test", {
+  .connect("mongodb+srv://Samcanes:Irtesam211@cluster0.fxmnn.mongodb.net/tpl?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
