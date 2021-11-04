@@ -8,7 +8,7 @@ const cors = require("cors");
 // routes here:
 
 const authroutes = require("./routes/auth");
-const projectRoutes = require("./routes/proejct");
+const projectRoutes = require("./routes/project");
 
 app.use(express.json({ extended: false, type: "application/json" }));
 
@@ -25,7 +25,7 @@ const listener = app.listen(process.env.PORT || 3000, () => {
   console.log("Your app is listening on port " + listener.address().port);
 });
 
-console.log(process.env.MONGO_URI);
+// console.log(process.env.MONGO_URI);
 
 mongoose
   .connect("mongodb+srv://Samcanes:Irtesam211@cluster0.fxmnn.mongodb.net/tpl?retryWrites=true&w=majority", {
