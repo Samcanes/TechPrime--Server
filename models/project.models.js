@@ -23,6 +23,12 @@ const projectSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
+    status: {
+      type: String,
+      enum: ["Registered", "Running", "Closed", "Cancelled"],
+      required: true,
+      trim: true,
+    },
 
     division: {
       type: String,
