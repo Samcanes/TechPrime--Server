@@ -40,4 +40,24 @@ exports.createProject = (req, res) => {
   });
 };
 
-exports.updateProject = (req, res) => {};
+exports.updateProject = (req, res) => {
+  console.log(req.body);
+  // res.status(200).json({ file: req.files, body: req.body });
+  const {
+   _id,
+   status
+  } = req.body;
+
+  console.log(status); 
+
+  let project  = projectModels.findOneAndUpdate({ _id: _id}, { status: status}, {
+    new: true
+  },
+  (error, project) => {
+    if (error) return res.status(400).json({message: "Failed to update Status", error });
+    if (project) {
+      res.status(201).json({message: "Status Updated", project });
+    }
+  }
+  );
+};
