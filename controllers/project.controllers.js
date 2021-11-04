@@ -15,6 +15,7 @@ exports.createProject = (req, res) => {
     location,
     createdBy,
     updatedAt,
+    status
   } = req.body;
 
   console.log(name);
@@ -30,6 +31,7 @@ exports.createProject = (req, res) => {
     department,
     location,
     createdBy: req.user._id,
+    status
   });
 
   project.save((error, project) => {
