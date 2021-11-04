@@ -69,13 +69,13 @@ exports.readProject = (req, res) => {
   // res.status(200).json({ file: req.files, body: req.body });
   userId = req.user._id,
 
-  console.log(status); 
+  // console.log(status); 
 
-  let project  = projectModels.find({ createdBy: userId},
+  projectModels.find({ createdBy: userId},
   (error, project) => {
     if (error) return res.status(400).json({message: "Failed to recive Project", error });
     if (project) {
-      res.status(201).json({message: "Projects recived", project });
+      res.status(201).json({message: "Projects recived", projectData: project });
     }
   }
   );
