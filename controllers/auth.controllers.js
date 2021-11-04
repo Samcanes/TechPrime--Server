@@ -54,7 +54,7 @@ exports.signin = (req, res) => {
 
           const token = jwt.sign(
             { _id: user._id, role: user.email },
-            process.env.JWT_SECRET,
+            "JWT_SECRET",
             { expiresIn: "1d" }
           );
           res.status(200).json({
@@ -83,7 +83,7 @@ exports.signin = (req, res) => {
 exports.requireSignin = (req, res, next) => {
   console.log("I am at require signIn");
   const token = req.headers.authorization.split(" ")[1];
-  const user = jwt.verify(token, process.env.JWT_SECRET);
+  const user = jwt.verify(token, "JWT_SECRET");
   req.user = user;
   next();
 };
