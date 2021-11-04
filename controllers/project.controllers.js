@@ -63,3 +63,22 @@ exports.updateProject = (req, res) => {
   }
   );
 };
+
+exports.readProject = (req, res) => {
+  // console.log(req.body);
+  // res.status(200).json({ file: req.files, body: req.body });
+  const {
+   _id
+  } = req.body;
+
+  console.log(status); 
+
+  let project  = projectModels.find({ _id: _id},
+  (error, project) => {
+    if (error) return res.status(400).json({message: "Failed to recive Project", error });
+    if (project) {
+      res.status(201).json({message: "Projects recived", project });
+    }
+  }
+  );
+};
