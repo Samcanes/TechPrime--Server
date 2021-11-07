@@ -15,6 +15,8 @@ exports.signup = (req, res) => {
       } else {
         const { firstName, lastName, password, email } = req.body;
         console.log(firstName, lastName, password, email);
+        
+
         const _user = new User({
           firstName,
           lastName,
@@ -31,7 +33,13 @@ exports.signup = (req, res) => {
             });
           }
           if (data) {
+            const token = jwt.sign(
+              { _id: data._id, email: data.email },
+              "JWT_SECRET",
+              { expiresIn: "1d" }
+            );
             return res.status(201).json({
+              token: token,
               user: data,
             });
           }
@@ -53,7 +61,7 @@ exports.signin = (req, res) => {
           const { firstName, lastName, email, role } = user;
 
           const token = jwt.sign(
-            { _id: user._id, role: user.email },
+            { _id: user._id, email: user.email },
             "JWT_SECRET",
             { expiresIn: "1d" }
           );
@@ -62,8 +70,7 @@ exports.signin = (req, res) => {
             user: {
               firstName,
               lastName,
-              email,
-              role,
+              email
             },
           });
         } else {
@@ -73,7 +80,7 @@ exports.signin = (req, res) => {
         }
       } else {
         return res.status(201).json({
-          message: "User Already Exist",
+          message: "User doesnt exist. Please SignUp",
         });
       }
     }
