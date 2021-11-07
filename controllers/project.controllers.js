@@ -75,3 +75,21 @@ exports.readProject = (req, res) => {
   }
   );
 };
+
+exports.readAllProject = (req, res) => {
+  projectModels.find({},
+  (error, project) => {
+    if (error) return res.status(400).json(
+      {
+        message: "Failed to recive Projects", 
+      error 
+    });
+    if (project) { 
+      res.status(201).json({
+        message: "Projects recived", 
+        projectData: project
+       });
+    }
+  }
+  );
+};
